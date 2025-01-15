@@ -256,7 +256,7 @@ function generateRandomCapacity() {
 
 // Main function
 const main = async () => {
-    mandiDulu()
+    CLOSING.info(mandiDulu)
     const wallets = readFile("wallets.txt")
 
     if (wallets.length === 0) {
