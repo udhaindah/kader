@@ -278,7 +278,7 @@ const main = async () => {
             try {
                 const response = await generateToken({ address });
                 if (!response || !response.token) {
-                    log.error(`Failed to generate token for account ${index + 1} Retrying with another proxy...`)
+                    log.error(`Failed to generate token for account ${index + 1} Retrying...`)
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     continue;
                 }
@@ -300,7 +300,7 @@ const main = async () => {
 
                 userInfoInterval = setInterval(async () => {
                     log.info(`Fetching total points gained today for account ${index + 1}...`);
-                    const user = await getUserInfo(token, proxy, index + 1);
+                    const user = await getUserInfo(token, index + 1);
 
                     if (user === 'unauthorized') {
                         log.info(`Unauthorized: Token is invalid or expired for account ${index + 1}, reconnecting...`);
